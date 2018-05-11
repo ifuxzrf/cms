@@ -30,9 +30,9 @@ AESProcess = AESCipher(keyMaterial, secondkey)
 SECRET_KEY = 'smrs95p^69t+z+)!!0g9%zoxn7m_vpr2yw)anrerhm4nxn*ssr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = 'login'
 
