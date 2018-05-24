@@ -46,9 +46,9 @@
                 <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
                     <ul class="nav nav-sidebar">
                         <li><a href="../user">客户信息表</a></li>
-                        <li><a href="./synonyms">同义词</a></li>
-                        <li><a href="#">情感词</a></li>
-                        <li><a href="./sensitive">敏感词</a></li>
+                        <li><a href="{% url 'synonyms' %}">同义词</a></li>
+                        <li><a href="{% url 'emotional' %}">情感词</a></li>
+                        <li><a href="{% url 'sensitive' %}">敏感词</a></li>
                         <li><a href="../../">系统配置</a></li>
                         <li><a href="../../">日志展示</a></li>
                     </ul>

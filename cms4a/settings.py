@@ -13,15 +13,12 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import configparser
 from tools.decrypt import AESCipher
+from tools.read_config import SysConfig
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-config = configparser.ConfigParser()
-config.read(os.path.join(BASE_DIR, 'cms4a.conf'))
-keyMaterial = config.get("crypto", "keymaterial")
-secondkey = config.get("crypto", "key")
-AESProcess = AESCipher(keyMaterial, secondkey)
+config = SysConfig()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -84,13 +81,11 @@ WSGI_APPLICATION = 'cms4a.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DB_HOST = config.get('db', 'host')
-DB_PORT = config.getint('db', 'port')
-DB_USER = config.get('db', 'user')
-DB_PASSWORD_TEMP = config.get('db', 'password')
-DB_PASSWORD = AESProcess.decryptkey(DB_PASSWORD_TEMP).decode()
-DB_DATABASE_TEMP = config.get('db', 'database')
-DB_DATABASE = AESProcess.decryptkey(DB_DATABASE_TEMP).decode()
+DB_HOST = config.getValue('db', 'host')
+DB_PORT = config.getInt('db', 'port')
+DB_USER = config.getValue('db', 'user')
+DB_PASSWORD = config.getPsw('db', 'password').decode()
+DB_DATABASE = config.getPsw('db', 'database')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

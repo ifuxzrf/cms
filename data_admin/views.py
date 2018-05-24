@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.http import HttpRequest, HttpResponse
 from data_admin.models import Synonyms, Emotional, Sensitive
 from django.contrib.auth.mixins import LoginRequiredMixin
+from tools.utils import pages
 
 import datetime
 
@@ -14,7 +15,7 @@ class SynonymsView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         obj = Synonyms.objects.all()
-        context['obj'] = obj
+        context = pages(obj, self.request, context)
         return context
 
     def post(self, request, *args, **kwargs):
@@ -49,7 +50,7 @@ class EmotionalView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         obj = Emotional.objects.all()
-        context['obj'] = obj
+        context = pages(obj, self.request, context)
         return context
 
     def post(self, request, *args, **kwargs):
@@ -85,7 +86,7 @@ class SensitiveView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         obj = Sensitive.objects.all()
-        context['obj'] = obj
+        context = pages(obj, self.request, context)
         return context
 
     def post(self, request, *args, **kwargs):
