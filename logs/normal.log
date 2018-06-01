@@ -1,0 +1,6 @@
+2018-03-30 17:48:30,971 [MainProcess:628] [Thread-1:10848] [django:9] [views:index] [INFO]- hello
+2018-03-30 17:48:30,974 [MainProcess:628] [Thread-1:10848] [django.server:124] [basehttp:log_message] [INFO]- "GET / HTTP/1.1" 200 875
+2018-03-30 17:48:34,457 [MainProcess:628] [Thread-3:15792] [django:9] [views:index] [INFO]- hello
+2018-03-30 17:48:34,458 [MainProcess:628] [Thread-3:15792] [django.server:124] [basehttp:log_message] [INFO]- "GET / HTTP/1.1" 200 875
+2018-03-30 17:49:11,279 [MainProcess:628] [Thread-4:13376] [django:9] [views:index] [INFO]- hello
+2018-03-30 17:49:11,280 [MainProcess:628] [Thread-4:13376] [django.server:124] [basehttp:log_message] [INFO]- "GET / HTTP/1.1" 200 875

@@ -1,5 +1,5 @@
 cms4a.conf
-crypto.conf
+crypt.conf
 crypt.py
 .idea
 __pycache__

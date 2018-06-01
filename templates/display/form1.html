@@ -1,0 +1,21 @@
+<form action="{% url 'form' %}" method="POST">
+    <div class="input-group">
+        {% csrf_token %}
+        {{ form.as_table }}
+        {% if error.pwd.0 %}
+        <span>{{ error.pwd.0 }}</span>
+        {% endif %}
+{#        {% for field in form %}#}
+{#            <div class="fieldWrapper">#}
+{#                {{ field.errors }}#}
+{#                {{ field.label_tag }} {{ field }}#}
+{#                {% if field.help_text %}#}
+{#                <p class="help">{{ field.help_text|safe }}</p>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        {% endfor %}#}
+    </div>
+    <div>
+        <input type="submit" value="提交" />
+    </div>
+</form>

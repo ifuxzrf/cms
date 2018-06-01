@@ -3,9 +3,14 @@ from django.db import models
 
 # Create your models here.
 
-class things(models.Model):
+class Things(models.Model):
     name = models.CharField(max_length=30, blank=True)
     price = models.CharField(max_length=30, blank=True)
+
+
+class image(models.Model):
+    thing = models.ForeignKey("Things", on_delete=models.CASCADE)
+    imgge_path = models.CharField(max_length=30, blank=True)
 
 #
 # class Book(models.Model):

@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', include('data_admin.urls')),
     path('', include('display_section.urls')),
     path('user/', include('user_section.urls')),
+    path('snippets/', include('snippets.urls'))
 ]

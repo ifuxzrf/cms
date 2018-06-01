@@ -3,5 +3,6 @@ from django.urls import path
 from display_section import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.ThingsView.as_view(), name='index'),
+    path('form/', views.form1, name='form'),
 ]
